@@ -1,28 +1,36 @@
-# import hàm tạo engine (kết nối DB)
-from sqlalchemy import create_engine  
+import os
+from dotenv import load_dotenv
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker, declarative_base
 
-# import để tạo session (làm việc với DB)
-from sqlalchemy.orm import sessionmaker  
+# 1. Đọc file .env để lấy thông số bảo mật
+load_dotenv()
 
-# import de tao base class cho model
-from sqlalchemy.orm import declarative_base
+# 2. Lấy các thông số từ biến môi trường (Lấy từ ảnh Aiven bạn đã chụp)
+db_user = os.getenv("DB_USER")
+db_pass = os.getenv("DB_PASSWORD")
+db_host = os.getenv("DB_HOST")
+db_port = os.getenv("DB_PORT")
+db_name = os.getenv("DB_NAME")
 
-#Chuoi ket noi toi mysql
-DB_URL = "mysql+pymysql://root:liqbbn123@localhost:3306/restaurant"
+# 3. Tạo chuỗi kết nối chuẩn cho Aiven (Yêu cầu SSL)
+# Lưu ý: File ca.pem phải nằm cùng thư mục với file này
+DB_URL = f"mysql+pymysql://{db_user}:{db_pass}@{db_host}:{db_port}/{db_name}?ssl_ca=ca.pem"
 
-#engine = "Cau noi giua Python va mysql"
+# 4. Tạo engine kết nối
 engine = create_engine(DB_URL)
 
-# SessionLocal = công cụ để thao tác với DB (query, insert, update...)
-SessionLocal  = sessionmaker(
-    autocommit= False, #khong tu thuc hien
-    autoflush= False, #Khong tu xuong dong
-    bind= engine #lien ket voi engine
+# 5. Cấu hình Session
+SessionLocal = sessionmaker(
+    autocommit=False, 
+    autoflush=False, 
+    bind=engine
 )
 
-#Base = class goc de tao bang (model)
-Base = declarative_base() 
-#Ham de tu dong lay session (ket noi va dong DB) cho tung request
+# 6. Base class cho model
+Base = declarative_base()
+
+# 7. Hàm lấy session cho mỗi request
 def get_db():
     db = SessionLocal()
     try:
