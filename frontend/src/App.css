@@ -1,0 +1,382 @@
+body {
+  font-family: Arial;
+  background: #f5f5f5;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+.container {
+  padding: 40px 20px;
+}
+
+button {
+  margin: 5px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background: orange;
+  color: white;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #222;
+  color: white;
+  padding: 15px 30px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+.nav-links a:hover {
+  color: orange;
+}
+
+/* ===== HOME PAGE ===== */
+.home-page {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #fff8f7, #ffeaea);
+}
+
+/* HERO */
+.hero-section {
+  min-height: 100vh;
+  text-align: center;
+  padding: 80px 20px 40px;
+  overflow: hidden;
+}
+
+/* TITLE */
+.hero-title {
+  font-size: 72px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 14px;
+  line-height: 1.1;
+}
+
+.hero-subtitle {
+  font-size: 24px;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+/* DRINK CONTAINER */
+.drink-wrapper {
+  position: relative;
+  width: 420px;
+  height: 560px;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+/* DRINK */
+.drink-img,
+.drink-open {
+  position: absolute;
+  width: 280px;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+/* SPLASH */
+.splash-img {
+  position: absolute;
+  width: 170px;
+
+  /* căn theo miệng ly */
+  left: 65%;
+  top: 200px;
+
+  /* dịch nhẹ sang phải để bù ảnh splash lệch trái */
+  transform: translateX(-100%);
+
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* INFO PANEL */
+.info-panel {
+  margin-top: 30px;
+}
+
+.info-panel h2 {
+  font-size: 34px;
+  margin-bottom: 24px;
+  color: #ff4d6d;
+}
+
+/* INGREDIENTS */
+.ingredients {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+
+.ingredients span {
+  background: white;
+  padding: 12px 18px;
+  border-radius: 14px;
+  font-size: 18px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+/* PRICE */
+.price-tag {
+  font-size: 44px;
+  font-weight: bold;
+  color: #ff4d6d;
+}
+/* ANIMATION */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= TABLE ================= */
+
+.tables-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.table-card {
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* IMAGE */
+.table-card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+}
+
+/* INFO */
+.table-info {
+  padding: 10px;
+  text-align: center;
+}
+
+/* ACTION BUTTONS */
+.table-actions {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+/* HOVER */
+.table-card:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+/* STATUS COLOR */
+.table-card.empty {
+  background: rgb(82, 7, 7); 
+}
+
+.table-card.using {
+  background: green; 
+}
+
+.table-card.reserved {
+  background: red; 
+}
+
+/* DETAIL PANEL */
+.table-detail {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.btn-add-table {
+  position: relative;
+  padding: 10px 16px 10px 36px;
+  border-radius: 8px;
+  background: #28a745;
+  color: white;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* ICON (dấu +) */
+.btn-add-table::before {
+  content: "+";
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.btn-add-table:hover {
+  background: #218838;
+  transform: translateY(-1px);
+}
+
+.btn-add-table:active {
+  transform: scale(0.97);
+}
+
+/* ================= ORDER ================= */
+
+.order-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 10px 0;
+  background: #f9f9f9;
+}
+
+.items {
+  margin-top: 10px;
+}
+
+.item {
+  padding: 5px 0;
+  border-bottom: 1px dashed #ccc;
+}
+
+.total {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* ================= MENU ================= */
+
+/* ===== MENU FORM ===== */
+.menu-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.menu-form input,
+.menu-form select {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.menu-form button {
+  background: orange;
+  color: white;
+}
+
+/* ===== MENU TABS ===== */
+.menu-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.menu-tabs button {
+  padding: 8px 15px;
+  border-radius: 20px;
+  border: none;
+  background: #ddd;
+  cursor: pointer;
+}
+
+.menu-tabs .active {
+  background: orange;
+  color: white;
+}
+
+/* ===== MENU CARD ===== */
+.menu-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 15px;
+}
+
+.menu-card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.menu-card:hover {
+  transform: translateY(-5px);
+}
+
+/* ===== CREATE ORDER ===== */
+.create-order-container {
+  padding: 20px;
+}
+
+.create-order-container select,
+.create-order-container input {
+  padding: 8px 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.order-add-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.order-cart {
+  margin-top: 20px;
+  width: 320px;
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.cart-item {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.create-order-btn {
+  margin-top: 20px;
+  background: orange;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.create-order-btn:hover {
+  opacity: 0.9;
+}
