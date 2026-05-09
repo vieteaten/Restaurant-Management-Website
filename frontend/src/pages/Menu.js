@@ -6,7 +6,7 @@ function Menu() {
   const [filteredMenu, setFilteredMenu] = useState([]);
 
   const [name, setName] = useState("");
-  const [category, setCategory] = useState("Đồ ăn chính");
+  const [category, setCategory] = useState("Món chính");
 
   const [search, setSearch] = useState("");
   const [debouncedSearch, setDebouncedSearch] = useState("");
@@ -77,7 +77,7 @@ function Menu() {
   const handleUpdate = async (m) => {
     const newName = prompt("Tên:", m.name);
     const newCategory = prompt(
-      "Loại (Đồ ăn chính / Ăn nhẹ / Đồ uống)",
+      "Loại (Món chính / Món phụ / Đồ uống)",
       m.category
     );
 
@@ -108,8 +108,8 @@ function Menu() {
           value={category}
           onChange={(e) => setCategory(e.target.value)}
         >
-          <option value="Đồ ăn chính">Món chính</option>
-          <option value="Ăn nhẹ">Món phụ</option>
+          <option value="Món chính">Món chính</option>
+          <option value="Món phụ">Món phụ</option>
           <option value="Đồ uống">Đồ uống</option>
         </select>
 
