@@ -74,6 +74,8 @@ backend/
 - Aiven for database
 - Render for backend
 - Cloudflare for frontend
-
+## Demo 
+- Live Demo: restaurant-management-website.pages.dev
+- Backend API: restaurant-management-website-srkx.onrender.com
 ## Author
 Vo Thanh Viet
