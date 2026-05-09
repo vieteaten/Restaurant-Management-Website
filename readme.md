@@ -1,4 +1,4 @@
-# Restaurant Management System
+# Restaurant Management System and My First Time Deploy an Website Online
 
 A simple restaurant management web app built with React + FastAPI.
 
@@ -68,7 +68,12 @@ backend/
 - Better responsive design
 - Authentication
 - Dashboard analytics
-- Deploy online
+- Deploy online 
+
+## Deployment Successful, Using: 
+- Aiven for database
+- Render for backend
+- Cloudflare for frontend
 
 ## Author
 Vo Thanh Viet
